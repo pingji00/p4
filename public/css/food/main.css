@@ -1,0 +1,31 @@
+h1,h2,h3,h4 {
+    text-align: center;
+    margin: .5em 20vw;
+}
+.name {
+    text-align: center;
+    font-size: 3rem;
+    margin: 1em auto;
+}
+
+.des {
+    text-align: center;
+    margin: 0 20vw 2em;
+}
+
+ul {
+    list-style-type: none;
+    margin: 10vh 20vw;
+    padding: 1em 0;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid #1f6fb2;
+    border-bottom: 2px solid #1f6fb2;
+}
+
+li {
+    padding: 0;
+    margin: 0;
+    font: normal bold 1.2rem/1em sans-serif;
+}

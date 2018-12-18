@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('/','FoodController@index');
+Route::get('/calc','FoodController@calc');
+
+
 Route::get('/debug', function () {
 
     $debug = [
