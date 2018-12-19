@@ -14,3 +14,14 @@
 .food-table th {
     background-color: #efefef;
 }
+.food-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    border: 0;
+}
+.food-checkboxes li {
+    font-size: .8rem;
+    margin-bottom: 1em;
+    flex: 0 0 50%;
+}

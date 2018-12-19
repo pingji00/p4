@@ -28,6 +28,15 @@ Route::post('/foods', 'FoodController@store');
 Route::get('/foods/{id}', 'FoodController@detail');
 Route::get('/foods', 'FoodController@show');
 
+//EDIT
+Route::get('/foods/{id}/edit', 'FoodController@edit');
+Route::put('/foods/{id}', 'FoodController@update');
+
+
+
+
+
+
 
 
 Route::get('/debug', function () {

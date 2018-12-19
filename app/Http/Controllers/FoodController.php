@@ -13,6 +13,8 @@ class FoodController extends Controller
         return view('food.index');
     }
 
+    //show all the foods
+
     public function show()
     {
         $foods = Food::orderBy('name')->get();
@@ -30,11 +32,7 @@ class FoodController extends Controller
         ]);
     }
 
-//    public function add()
-//    {
-//        $foods = Food::orderBy('name')->get();
-//        return view('food.add');
-//    }
+    // add your own food
 
     public function add(Request $request)
     {
@@ -52,6 +50,7 @@ class FoodController extends Controller
 
     }
 
+    // add your own food saved
     public function store(Request $request)
     {
         $request->validate([
@@ -71,13 +70,78 @@ class FoodController extends Controller
 
         $food->save();
 
-//        $food->categories()->sync($request->categories);
+        $food->categories()->sync($request->categories);
 //
         return redirect('/foods')->with([
             'alert' => 'Your food is added.'
         ]);
 
     }
+
+
+    // edit the food data
+
+    public function edit($id)
+    {
+        $food = Food::find($id);
+
+        $name = $food->name;
+
+        $calorie = $food->calorie;
+
+        $fat = $food->fat;
+
+        $carb = $food->carb;
+
+        $protein = $food->protein;
+
+        $categories = Category::getForCheckboxes();
+//
+        $categoriesForThisFood = $food->categories()->pluck('categories.id')->toArray();
+//
+//        if (!$food) {
+//            return redirect('/foods')->with([
+//                'alert' => 'Food not found.'
+//            ]);
+//        }
+        return view('food.edit')->with([
+            'food' => $food,
+            'name' => $name,
+            'foodCalorie' => $calorie,
+            'foodFat' => $fat,
+            'foodCarb' => $carb,
+            'categories' => $categories,
+            'categoriesForThisFood' => $categoriesForThisFood
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'foodCalorie' => 'required|numeric|min:0|max:1000',
+            'foodFat' => 'required|numeric|min:0|max:100',
+            'foodCarb' => 'required|numeric|min:0|max:100',
+            'foodProtein' => 'required|numeric|min:0|max:100',
+        ]);
+
+        $food = Food::find($id);
+
+        $food->categories()->sync($request->categoreis);
+
+        $food->calorie = $request->foodCalorie;
+        $food->fat = $request->foodFat;
+        $food->carb = $request->foodCarb;
+        $food->protein = $request->foodProtein;
+        $food->save();
+
+        return redirect('/foods/' . $id . '/edit')->with([
+            'alert' => 'Your changes were saved.'
+        ]);
+    }
+
+
+
+
 
 
     public function calc(Request $request)

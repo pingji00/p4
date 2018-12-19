@@ -18,3 +18,43 @@
     text-align: center;
     margin-bottom: 2em;
 }
+.cat-container {
+    text-align: center;
+    margin-top: -.5em;
+    margin-bottom: 3em;
+}
+.category {
+    display: inline-block;
+    height: 2em;
+    position: relative;
+    background: #1d643b;
+    color: white;
+    font: bold .5rem/2em sans-serif;
+    margin-right:3em;
+    padding-left: 1em;
+    padding-right: .8em;
+    text-align: center;
+}
+.category:before {
+    content: "";
+    position: absolute;
+    right: -.98em;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 1em solid #1d643b;
+    border-top: 1em solid transparent;
+    border-bottom: 1em solid transparent;
+}
+.category:after {
+    content: "";
+    position: absolute;
+    right: -.45em;
+    top: 50%;
+    width: .4em;
+    height: .4em;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background-color: white;
+}
+
