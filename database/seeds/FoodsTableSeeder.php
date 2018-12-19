@@ -21,6 +21,8 @@ class FoodsTableSeeder extends Seeder
             ["Broccoli", 34, 0.4, 7, 2.8],
             ["Beer", 43, 0, 3.6, 0.5],
             ["Egg", 154, 10, 1.2, 12],
+            ["Salmon", 208, 13, 0, 20],
+            ["Pineapple", 208, 13, 0, 20],
         ];
 
         $count = count($foods);
