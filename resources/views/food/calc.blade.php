@@ -3,27 +3,23 @@
     Calorie Calculator
 @endsection
 @push('morecss')
-    <link href='/css/calc/calc-form.css' rel='stylesheet'>
+    <link href='/css/food/calc-form.css' rel='stylesheet'>
 @endpush
 
 
 @section('content')
-    <h2 class='form-title'>Now do the math</h2>
+
+    <h2 class='form-title'>Pick the food you like, see the nutrition facts. </h2>
     <form class='calc-container' method='GET' action='/calc-process'>
         <div class='amount'>
-        <label>Qty:<input type="number"
-                          name="quantity"
-                          placeholder= {{ (!$inputFood) ? old('quantity') : "Amount?" }} ></label>
-        <label><input type='radio' name="unit" id="lb" value="lb" {{ ($unit == "lb" ? 'checked' : '') }}> lb</label>
-        <label><input type="radio" name="unit" id='kg' value="kg" {{ ($unit == "kg" ? 'checked' : '') }}> kg</label>
+            <label>
+                <input type="number" name="quantity" placeholder= {{ (!$inputFood) ? old('quantity_1') : "" }} > oz
+            </label>
         </div>
         @if($errors->get('quantity'))
             <div class='error'>{{ $errors->first('quantity') }}</div>
         @endif
-        @if($errors->get('unit'))
-            <div class='error'>{{ $errors->first('unit') }}</div>
-        @endif
-        <label>Food name:
+        <label>
             <select name='food' id='food'>
                 {{--<option value='name'>food name</option>--}}
                 @foreach($foods as $food)
@@ -31,8 +27,8 @@
                 @endforeach
             </select>
         </label>
-        <input type='submit' value='submit'><br>
 
+        <input type='submit' value='submit' class='btn'><br>
     </form>
     @if($quantity)
         <div id='result'>

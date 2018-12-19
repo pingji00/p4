@@ -1,0 +1,41 @@
+.food-table {
+    width: 60vw;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 5em;
+}
+.food-table caption {
+    position: absolute;
+    top: -5em;
+}
+.food-table tr {
+    padding: 1em !important;
+}
+.food-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    border: 0;
+}
+.food-checkboxes li {
+    font-size: .8rem;
+    margin-bottom: 1em;
+    flex: 0 0 50%;
+}
+.error {
+    font: bold italic .6rem/1.2em sans-serif;
+    color: red;
+    margin-bottom: 4em;
+}
+.alert-top {
+    position:fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    min-height: 3vh;
+    background-color: hsla(180,100%,20%,0.4);
+    color: white;
+    font: normal bold normal 1rem/1.2em sans-serif;
+    text-align: center;
+    padding: 1em;
+}

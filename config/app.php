@@ -14,8 +14,8 @@ return [
     */
     'nav' => [
         '/calc' => 'Calculator',
-        '/about' => 'About',
-        '/contact' => 'Contact'
+        '/foods' => 'Food list',
+        '/foods/create' => 'Add your own food',
     ],
 
     /*

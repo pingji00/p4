@@ -29,3 +29,15 @@ li {
     margin: 0;
     font: normal bold 1.2rem/1em sans-serif;
 }
+.alert-top {
+    position:fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    min-height: 5vh;
+    background-color: red;
+    color: white;
+    font: normal bold normal 1rem/1.2em sans-serif;
+    text-align: center;
+    padding: 2em;
+}

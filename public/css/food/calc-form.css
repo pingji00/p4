@@ -1,9 +1,19 @@
 .calc-container {
     margin: 2vh 20vw;
+    position: relative;
 }
 form {
     background-color: #f3f3f3;
     padding: 2em;
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+    /*flex-wrap: nowrap;*/
+}
+
+ select {
+    font-size: 1.2rem;
+    margin-left: 1.5em;
+    padding: 1.5em !important;
 }
 .form-title {
     text-align: center;
@@ -39,5 +49,21 @@ dd {
     margin-bottom: 2em;
 }
 .amount {
+    display: inline-block;
+}
+.amount input {
     padding-bottom: .5rem;
+    width: 100px;
+    display: inline-block;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid black;
+
+}
+.btn {
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #98e1b7;
 }

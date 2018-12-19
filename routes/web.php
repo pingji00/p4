@@ -15,6 +15,19 @@
 
 Route::get('/','FoodController@index');
 Route::get('/calc','FoodController@calc');
+Route::get('/calc-process','FoodController@calcProcess');
+
+//SHOW
+//Route::get('/foods', 'FoodController@show');
+
+//ADD
+Route::get('/foods/create', 'FoodController@add');
+Route::post('/foods', 'FoodController@store');
+
+//SHOW
+Route::get('/foods/{id}', 'FoodController@detail');
+Route::get('/foods', 'FoodController@show');
+
 
 
 Route::get('/debug', function () {
@@ -41,4 +54,5 @@ Route::get('/debug', function () {
     }
 
     dump($debug);
+
 });
