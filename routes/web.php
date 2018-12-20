@@ -32,7 +32,9 @@ Route::get('/foods', 'FoodController@show');
 Route::get('/foods/{id}/edit', 'FoodController@edit');
 Route::put('/foods/{id}', 'FoodController@update');
 
-
+# DELETE
+Route::get('/foods/{id}/delete', 'FoodController@delete');
+Route::delete('/foods/{id}', 'FoodController@destroy');
 
 
 

@@ -25,3 +25,20 @@
     margin-bottom: 1em;
     flex: 0 0 50%;
 }
+.alert-top {
+    position:fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    min-height: 3vh;
+    background-color: hsla(70,100%,50%,0.8);
+    color: black;
+    font: normal bold normal 1rem/1.2em sans-serif;
+    text-align: center;
+    padding: 1em;
+}
+.error {
+    font-size: .6em !important;
+    color: red !important;;
+    margin-bottom: 2em !important;;
+}

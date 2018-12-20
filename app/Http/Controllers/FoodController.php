@@ -38,12 +38,12 @@ class FoodController extends Controller
     {
         $categories = Category::getForCheckboxes();
         return view('food.add')->with([
-//            'foods' => $foods,
-//            'foodName' => $request -> session() -> get('foodName', ''),
-//            'foodCalorie' => $request -> session() -> get('foodCalorie', ''),
-//            'foodFat' => $request -> session() -> get('foodFat', ''),
-//            'foodCarb' => $request -> session() -> get('foodCarb', ''),
-//            'foodProtein' => $request -> session() -> get('foodProtein', ''),
+
+            'foodName' => $request -> session() -> get('foodName', ''),
+            'foodCalorie' => $request -> session() -> get('foodCalorie', ''),
+            'foodFat' => $request -> session() -> get('foodFat', ''),
+            'foodCarb' => $request -> session() -> get('foodCarb', ''),
+            'foodProtein' => $request -> session() -> get('foodProtein', ''),
 
             'categories' => $categories
         ]);
@@ -139,8 +139,32 @@ class FoodController extends Controller
         ]);
     }
 
+    //Delete
+    public function delete($id)
+    {
+        $food = Food::find($id);
 
+        if (!$food) {
+            return redirect('/foods')->with('alert', 'There\'s no such food');
+        }
 
+        return view('food.delete')->with([
+            'food' => $food,
+        ]);
+    }
+
+    public function destroy($id)
+    {
+        $food = Food::find($id);
+
+        $food->categories()->detach();
+
+        $food->delete();
+
+        return redirect('/foods')->with([
+            'alert' => '“' . $food->name . '” was disappeared.'
+        ]);
+    }
 
 
 

@@ -13,6 +13,13 @@
 <body>
 
 <header>
+    @if(session('alert'))
+        <div class='alert-top'>
+            {{ session('alert') }}
+        </div>
+    @endif
+
+
     <h1 class='name'><a href='/'>Nutrition Facts</a></h1>
     <p class='des'>This food Calorie Calculator below allows you to choose from dozens of foods, and see nutrition facts such as calories, fat, protein, etc.</p>
     @include('modules.nav')

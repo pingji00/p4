@@ -10,7 +10,7 @@
 @section('content')
 
     @if(count($errors) > 0)
-        <div class='alert'>
+        <div class='alert-top'>
             Please correct the errors below.
         </div>
     @endif
@@ -22,7 +22,7 @@
         {{ method_field('put') }}
         {{ csrf_field() }}
         <tr>
-            <th>{{ $food->name  }}</th>
+            <th>{{ $food->name }}</th>
         </tr>
         <tr>
             <td>
