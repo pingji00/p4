@@ -41,4 +41,4 @@ __Delete__
 *none*
 
 ## Notes for instructor
-*none*
+A small "new" tag will show beside the food name when a new item added. It will stay within 30s even the page refreshed.
