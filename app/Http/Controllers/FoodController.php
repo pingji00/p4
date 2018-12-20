@@ -170,12 +170,12 @@ class FoodController extends Controller
 
     public function calc(Request $request)
     {
+//        $foods = Food::getForDropdown();
         $foods = Food::orderBy('name')->get();
         return view('food.calc')->with([
             'foods' => $foods,
             'quantity' => $request -> session() -> get('quantity', ''),
-            'inputFood' => $request -> session() -> get('inputFood', ''),
-            'nutrFacts' => $request -> session() -> get('nutrFacts', [])
+            'food_id' => $request -> session() -> get('food_id', ''),
         ]);
     }
 
@@ -184,44 +184,41 @@ class FoodController extends Controller
     {
         $request->validate([
             'quantity' => 'required|numeric|gt:0|max:10',
-            'unit' => 'required',
+            'food_id' => 'required',
         ]);
 
         $foods = Food::orderBy('name')->get();
 
-
         $quantity = $request->input('quantity', null);
-        $inputFood = $request->input('food', null);
+        $food_id = $request->input('food_id', null);
 
-        //set up coefficient based on 100g : 1 oz
+        //set up coefficient based on 100g : 1oz(28g)
         $coefficient = 100 / 28;
+//        $food_name = $foods[$food_id]->name;
 
-        $nutrFacts = [];
 
         # Save nutrition facts to selected food
-        foreach ($foods as $food) {
-            if ($inputFood === $food['name']) {
+//        $unitCalorie = $foods['$food_id']->calorie;
+//        $unitFat = $foods[$food_name]->fat;
+//        $unitCarb = $foods['$food_id']->carb;
+//        $unitProtein = $foods['$food_id']->protein;
 
-
-                foreach ($food['nutrition-per-100g'] as $nutr => $nutrAmt) {
-                    $nutrFacts[$nutr] = round($nutrAmt * $coefficient * $quantity);
-
-                    if ($nutr == "energy") {
-                        $nutrFacts[$nutr] .= " calorie";
-                    } else {
-                        $nutrFacts[$nutr] .= " g";
-                    }
-                }
-            }
-        }
+//        foreach ($foods as $food) {
+//            if ($inputFood === $food['id']) {
+//
+//
+//
+//            }
+//        }
 
 //        return $nutrFacts;
 
         return redirect('/calc')->with([
             'quantity' => $quantity,
-            'unit' => $unit,
-            'inputFood' => $inputFood,
-            'nutrFacts' => $nutrFacts
+            'food_id' => $food_id,
+//            'food_name' => $food_name
+//            'fat' => $unitFat
+//            'nutrFacts' => $nutrFacts
         ]);
     }
 

@@ -13,7 +13,7 @@ return [
     |
     */
     'nav' => [
-        '/calc' => 'Calculator',
+//        '/calc' => 'Calculator',
         '/foods' => 'Food list',
         '/foods/create' => 'Add your own food',
     ],
