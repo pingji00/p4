@@ -1,0 +1,11 @@
+.new {
+    display: inline-block !important;
+    font-size: .6em !important;
+    color: white !important;
+    background-color: #2176bd !important;
+    padding: .2em .8em !important;
+    border-radius: 3px !important;
+    position: relative;
+    top: -.3em;
+    left: .5em;
+}

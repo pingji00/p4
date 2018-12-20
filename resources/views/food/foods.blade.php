@@ -4,6 +4,7 @@
 @endsection
 @push('morecss')
     <link href='/css/food/food-table.css' rel='stylesheet'>
+    <link href='/css/food/new.css' rel='stylesheet'>
 @endpush
 
 
@@ -23,7 +24,6 @@
         @foreach($foods as $food)
         <tr>
             @include('food._food')
-
         </tr>
         @endforeach
     </table>
